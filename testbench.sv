@@ -1,7 +1,8 @@
 module tb();
-reg clk;reg rst;reg J;reg K;
-wire Q;
-jk_ff inst(clk, rst, J, K, Q);
+reg clk, rst;
+reg [3:0] D;
+wire [3:0] Q;
+  register4 uut (  .clk(clk),  .rst(rst), .D(D), .Q(Q) );
 initial begin
     $dumpfile("test.vcd");
     $dumpvars(0, tb);
@@ -12,26 +13,21 @@ initial begin
 end
 initial begin
     rst = 1;
-    J = 0;
-    K = 0;
-    #10; rst = 0;
-    @(posedge clk);
-    J = 0;
-    K = 0;
-    @(posedge clk);
-    J = 0;
-    K = 1;
-    @(posedge clk);
-    J = 1;
-    K = 0;
-    @(posedge clk);
-    J = 1;
-    K = 1;
-    @(posedge clk);
-    J = 1;
-    K = 1;
-    @(posedge clk);
-    J = 0;
-    K = 0;
-    #20; $finish;
+    D = 4'b0000;
+    #10;
+    rst = 0;
+    D = 4'b0001;
+    #10;
+    D = 4'b1010;
+    #10;
+    D = 4'b1111;
+    #10;
+    D = 4'b0101;
+    #10;
+    rst = 1;
+    #10;
+    rst = 0;
+    D = 4'b1100;
+    #10;
+    $finish;
 end endmodule

@@ -1,22 +1,16 @@
-module jk_ff(
+module register4(
     input clk,
     input rst,
-    input J,
-    input K,
-    output reg Q
+    input [3:0] D,
+    output reg [3:0] Q
 );
 
-always @(posedge clk) begin
+always @(posedge clk)
+begin
     if (rst)
-        Q <= 1'b0;
-    else begin
-        case ({J,K})
-            2'b00: Q <= Q;      // No Change
-            2'b01: Q <= 1'b0;   // Reset
-            2'b10: Q <= 1'b1;   // Set
-            2'b11: Q <= ~Q;     // Toggle
-        endcase
-    end
+        Q <= 4'b0000;
+    else
+        Q <= D;
 end
 
 endmodule

@@ -28,7 +28,7 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__0(Vsim___024root* vlSel
         co_await vlSelfRef.__VdlySched.delay(5ULL, 
                                              nullptr, 
                                              "testbench.sv", 
-                                             11);
+                                             12);
         vlSelfRef.tb__DOT__clk = (1U & (~ (IData)(vlSelfRef.tb__DOT__clk)));
     }
     co_return;}
@@ -39,58 +39,37 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__1(Vsim___024root* vlSel
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     vlSelfRef.tb__DOT__rst = 1U;
-    vlSelfRef.tb__DOT__J = 0U;
-    vlSelfRef.tb__DOT__K = 0U;
+    vlSelfRef.tb__DOT__D = 0U;
     co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
                                          nullptr, "testbench.sv", 
                                          17);
     vlSelfRef.tb__DOT__rst = 0U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         18);
-    vlSelfRef.tb__DOT__J = 0U;
-    vlSelfRef.tb__DOT__K = 0U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         21);
-    vlSelfRef.tb__DOT__J = 0U;
-    vlSelfRef.tb__DOT__K = 1U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         24);
-    vlSelfRef.tb__DOT__J = 1U;
-    vlSelfRef.tb__DOT__K = 0U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         27);
-    vlSelfRef.tb__DOT__J = 1U;
-    vlSelfRef.tb__DOT__K = 1U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         30);
-    vlSelfRef.tb__DOT__J = 1U;
-    vlSelfRef.tb__DOT__K = 1U;
-    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                         nullptr, 
-                                                         "@(posedge tb.clk)", 
-                                                         "testbench.sv", 
-                                                         33);
-    vlSelfRef.tb__DOT__J = 0U;
-    vlSelfRef.tb__DOT__K = 0U;
-    co_await vlSelfRef.__VdlySched.delay(0x0000000000000014ULL, 
+    vlSelfRef.tb__DOT__D = 1U;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
                                          nullptr, "testbench.sv", 
-                                         36);
-    VL_FINISH_MT("testbench.sv", 36, "");
+                                         20);
+    vlSelfRef.tb__DOT__D = 0x0aU;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+                                         nullptr, "testbench.sv", 
+                                         22);
+    vlSelfRef.tb__DOT__D = 0x0fU;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+                                         nullptr, "testbench.sv", 
+                                         24);
+    vlSelfRef.tb__DOT__D = 5U;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+                                         nullptr, "testbench.sv", 
+                                         26);
+    vlSelfRef.tb__DOT__rst = 1U;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+                                         nullptr, "testbench.sv", 
+                                         28);
+    vlSelfRef.tb__DOT__rst = 0U;
+    vlSelfRef.tb__DOT__D = 0x0cU;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+                                         nullptr, "testbench.sv", 
+                                         31);
+    VL_FINISH_MT("testbench.sv", 32, "");
     co_return;}
 
 #ifdef VL_DEBUG
@@ -136,12 +115,8 @@ void Vsim___024root___nba_sequent__TOP__0(Vsim___024root* vlSelf) {
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.tb__DOT__Q = ((1U & (~ (IData)(vlSelfRef.tb__DOT__rst))) 
-                            && ((IData)(vlSelfRef.tb__DOT__J)
-                                 ? ((1U & (~ (IData)(vlSelfRef.tb__DOT__K))) 
-                                    || (1U & (~ (IData)(vlSelfRef.tb__DOT__Q))))
-                                 : ((1U & (~ (IData)(vlSelfRef.tb__DOT__K))) 
-                                    && (IData)(vlSelfRef.tb__DOT__Q))));
+    vlSelfRef.tb__DOT__Q = ((IData)(vlSelfRef.tb__DOT__rst)
+                             ? 0U : (IData)(vlSelfRef.tb__DOT__D));
 }
 
 void Vsim___024root___eval_nba(Vsim___024root* vlSelf) {
@@ -154,26 +129,11 @@ void Vsim___024root___eval_nba(Vsim___024root* vlSelf) {
     }
 }
 
-void Vsim___024root___timing_commit(Vsim___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vsim___024root___timing_commit\n"); );
-    Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    if ((! (1ULL & vlSelfRef.__VactTriggered[0U]))) {
-        vlSelfRef.__VtrigSched_h32009f5a__0.commit(
-                                                   "@(posedge tb.clk)");
-    }
-}
-
 void Vsim___024root___timing_resume(Vsim___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsim___024root___timing_resume\n"); );
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((1ULL & vlSelfRef.__VactTriggered[0U])) {
-        vlSelfRef.__VtrigSched_h32009f5a__0.resume(
-                                                   "@(posedge tb.clk)");
-    }
     if ((2ULL & vlSelfRef.__VactTriggered[0U])) {
         vlSelfRef.__VdlySched.resume();
     }
@@ -199,7 +159,6 @@ bool Vsim___024root___eval_phase__act(Vsim___024root* vlSelf) {
     CData/*0:0*/ __VactExecute;
     // Body
     Vsim___024root___eval_triggers__act(vlSelf);
-    Vsim___024root___timing_commit(vlSelf);
     Vsim___024root___trigger_orInto__act(vlSelfRef.__VnbaTriggered, vlSelfRef.__VactTriggered);
     __VactExecute = Vsim___024root___trigger_anySet__act(vlSelfRef.__VactTriggered);
     if (__VactExecute) {

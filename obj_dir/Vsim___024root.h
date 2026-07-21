@@ -17,15 +17,13 @@ class alignas(VL_CACHE_LINE_BYTES) Vsim___024root final {
     // DESIGN SPECIFIC STATE
     CData/*0:0*/ tb__DOT__clk;
     CData/*0:0*/ tb__DOT__rst;
-    CData/*0:0*/ tb__DOT__J;
-    CData/*0:0*/ tb__DOT__K;
-    CData/*0:0*/ tb__DOT__Q;
+    CData/*3:0*/ tb__DOT__D;
+    CData/*3:0*/ tb__DOT__Q;
     CData/*0:0*/ __Vtrigprevexpr___TOP__tb__DOT__clk__0;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<QData/*63:0*/, 1> __VactTriggered;
     VlUnpacked<QData/*63:0*/, 1> __VnbaTriggered;
     VlDelayScheduler __VdlySched;
-    VlTriggerScheduler __VtrigSched_h32009f5a__0;
 
     // INTERNAL VARIABLES
     Vsim__Syms* vlSymsp;
