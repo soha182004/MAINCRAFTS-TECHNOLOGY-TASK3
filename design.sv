@@ -1,16 +1,11 @@
-module register4(
+module counter4(
     input clk,
-    input rst,
-    input [3:0] D,
-    output reg [3:0] Q
+    output reg [3:0] count
 );
 
 always @(posedge clk)
 begin
-    if (rst)
-        Q <= 4'b0000;
-    else
-        Q <= D;
+    count <= count + 1;
 end
 
 endmodule

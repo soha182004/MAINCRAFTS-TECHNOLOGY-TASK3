@@ -59,9 +59,7 @@ VL_ATTR_COLD void Vsim___024root___ctor_var_reset(Vsim___024root* vlSelf) {
     // Body
     const uint64_t __VscopeHash = VL_MURMUR64_HASH(vlSelf->vlNamep);
     vlSelf->tb__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6743979137201610926ull);
-    vlSelf->tb__DOT__rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1156696098083290880ull);
-    vlSelf->tb__DOT__D = VL_SCOPED_RAND_RESET_I(4, __VscopeHash, 8170620210620316224ull);
-    vlSelf->tb__DOT__Q = VL_SCOPED_RAND_RESET_I(4, __VscopeHash, 8641757343418813479ull);
+    vlSelf->tb__DOT__count = VL_SCOPED_RAND_RESET_I(4, __VscopeHash, 6974039314245659550ull);
     for (int __Vi0 = 0; __Vi0 < 1; ++__Vi0) {
         vlSelf->__VactTriggered[__Vi0] = 0;
     }

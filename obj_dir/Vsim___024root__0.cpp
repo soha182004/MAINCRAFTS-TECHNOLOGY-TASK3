@@ -28,7 +28,7 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__0(Vsim___024root* vlSel
         co_await vlSelfRef.__VdlySched.delay(5ULL, 
                                              nullptr, 
                                              "testbench.sv", 
-                                             12);
+                                             15);
         vlSelfRef.tb__DOT__clk = (1U & (~ (IData)(vlSelfRef.tb__DOT__clk)));
     }
     co_return;}
@@ -38,38 +38,10 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__1(Vsim___024root* vlSel
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.tb__DOT__rst = 1U;
-    vlSelfRef.tb__DOT__D = 0U;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         17);
-    vlSelfRef.tb__DOT__rst = 0U;
-    vlSelfRef.tb__DOT__D = 1U;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
+    co_await vlSelfRef.__VdlySched.delay(0x0000000000000064ULL, 
                                          nullptr, "testbench.sv", 
                                          20);
-    vlSelfRef.tb__DOT__D = 0x0aU;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         22);
-    vlSelfRef.tb__DOT__D = 0x0fU;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         24);
-    vlSelfRef.tb__DOT__D = 5U;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         26);
-    vlSelfRef.tb__DOT__rst = 1U;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         28);
-    vlSelfRef.tb__DOT__rst = 0U;
-    vlSelfRef.tb__DOT__D = 0x0cU;
-    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
-                                         nullptr, "testbench.sv", 
-                                         31);
-    VL_FINISH_MT("testbench.sv", 32, "");
+    VL_FINISH_MT("testbench.sv", 21, "");
     co_return;}
 
 #ifdef VL_DEBUG
@@ -115,8 +87,8 @@ void Vsim___024root___nba_sequent__TOP__0(Vsim___024root* vlSelf) {
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.tb__DOT__Q = ((IData)(vlSelfRef.tb__DOT__rst)
-                             ? 0U : (IData)(vlSelfRef.tb__DOT__D));
+    vlSelfRef.tb__DOT__count = (0x0000000fU & ((IData)(1U) 
+                                               + (IData)(vlSelfRef.tb__DOT__count)));
 }
 
 void Vsim___024root___eval_nba(Vsim___024root* vlSelf) {
