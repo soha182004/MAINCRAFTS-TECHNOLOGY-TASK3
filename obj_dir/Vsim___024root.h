@@ -17,8 +17,9 @@ class alignas(VL_CACHE_LINE_BYTES) Vsim___024root final {
     // DESIGN SPECIFIC STATE
     CData/*0:0*/ tb__DOT__clk;
     CData/*0:0*/ tb__DOT__rst;
-    CData/*7:0*/ tb__DOT__data_in;
-    CData/*7:0*/ tb__DOT__data_out;
+    CData/*0:0*/ tb__DOT__J;
+    CData/*0:0*/ tb__DOT__K;
+    CData/*0:0*/ tb__DOT__Q;
     CData/*0:0*/ __Vtrigprevexpr___TOP__tb__DOT__clk__0;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<QData/*63:0*/, 1> __VactTriggered;

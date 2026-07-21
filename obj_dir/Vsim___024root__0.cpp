@@ -28,7 +28,7 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__0(Vsim___024root* vlSel
         co_await vlSelfRef.__VdlySched.delay(5ULL, 
                                              nullptr, 
                                              "testbench.sv", 
-                                             14);
+                                             11);
         vlSelfRef.tb__DOT__clk = (1U & (~ (IData)(vlSelfRef.tb__DOT__clk)));
     }
     co_return;}
@@ -37,31 +37,60 @@ VlCoroutine Vsim___024root___eval_initial__TOP__Vtiming__1(Vsim___024root* vlSel
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsim___024root___eval_initial__TOP__Vtiming__1\n"); );
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Locals
-    IData/*31:0*/ tb__DOT__unnamedblk1_1__DOT____Vrepeat0;
-    tb__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     // Body
     vlSelfRef.tb__DOT__rst = 1U;
-    co_await vlSelfRef.__VdlySched.delay(5ULL, nullptr, 
-                                         "testbench.sv", 
-                                         19);
-    vlSelfRef.tb__DOT__rst = 0U;
-    tb__DOT__unnamedblk1_1__DOT____Vrepeat0 = 5U;
-    while (VL_LTS_III(32, 0U, tb__DOT__unnamedblk1_1__DOT____Vrepeat0)) {
-        co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
-                                                             nullptr, 
-                                                             "@(posedge tb.clk)", 
-                                                             "testbench.sv", 
-                                                             21);
-        vlSelfRef.tb__DOT__data_in = (0x000000ffU & 
-                                      VL_RANDOM_I());
-        tb__DOT__unnamedblk1_1__DOT____Vrepeat0 = (tb__DOT__unnamedblk1_1__DOT____Vrepeat0 
-                                                   - (IData)(1U));
-    }
-    co_await vlSelfRef.__VdlySched.delay(0x0000000000000096ULL, 
+    vlSelfRef.tb__DOT__J = 0U;
+    vlSelfRef.tb__DOT__K = 0U;
+    co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
                                          nullptr, "testbench.sv", 
-                                         25);
-    VL_FINISH_MT("testbench.sv", 26, "");
+                                         17);
+    vlSelfRef.tb__DOT__rst = 0U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         18);
+    vlSelfRef.tb__DOT__J = 0U;
+    vlSelfRef.tb__DOT__K = 0U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         21);
+    vlSelfRef.tb__DOT__J = 0U;
+    vlSelfRef.tb__DOT__K = 1U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         24);
+    vlSelfRef.tb__DOT__J = 1U;
+    vlSelfRef.tb__DOT__K = 0U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         27);
+    vlSelfRef.tb__DOT__J = 1U;
+    vlSelfRef.tb__DOT__K = 1U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         30);
+    vlSelfRef.tb__DOT__J = 1U;
+    vlSelfRef.tb__DOT__K = 1U;
+    co_await vlSelfRef.__VtrigSched_h32009f5a__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge tb.clk)", 
+                                                         "testbench.sv", 
+                                                         33);
+    vlSelfRef.tb__DOT__J = 0U;
+    vlSelfRef.tb__DOT__K = 0U;
+    co_await vlSelfRef.__VdlySched.delay(0x0000000000000014ULL, 
+                                         nullptr, "testbench.sv", 
+                                         36);
+    VL_FINISH_MT("testbench.sv", 36, "");
     co_return;}
 
 #ifdef VL_DEBUG
@@ -107,8 +136,12 @@ void Vsim___024root___nba_sequent__TOP__0(Vsim___024root* vlSelf) {
     Vsim__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.tb__DOT__data_out = ((IData)(vlSelfRef.tb__DOT__rst)
-                                    ? 0U : (IData)(vlSelfRef.tb__DOT__data_in));
+    vlSelfRef.tb__DOT__Q = ((1U & (~ (IData)(vlSelfRef.tb__DOT__rst))) 
+                            && ((IData)(vlSelfRef.tb__DOT__J)
+                                 ? ((1U & (~ (IData)(vlSelfRef.tb__DOT__K))) 
+                                    || (1U & (~ (IData)(vlSelfRef.tb__DOT__Q))))
+                                 : ((1U & (~ (IData)(vlSelfRef.tb__DOT__K))) 
+                                    && (IData)(vlSelfRef.tb__DOT__Q))));
 }
 
 void Vsim___024root___eval_nba(Vsim___024root* vlSelf) {

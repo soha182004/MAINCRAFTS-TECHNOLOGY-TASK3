@@ -1,14 +1,22 @@
-module dff(clk,rst,data_in,data_out);
-  input clk,rst;
-  input [7:0] data_in;
-  output reg[7:0] data_out;
-  
-  always @(posedge clk) begin
-    if (rst==1) begin
-      data_out<=0;
+module jk_ff(
+    input clk,
+    input rst,
+    input J,
+    input K,
+    output reg Q
+);
+
+always @(posedge clk) begin
+    if (rst)
+        Q <= 1'b0;
+    else begin
+        case ({J,K})
+            2'b00: Q <= Q;      // No Change
+            2'b01: Q <= 1'b0;   // Reset
+            2'b10: Q <= 1'b1;   // Set
+            2'b11: Q <= ~Q;     // Toggle
+        endcase
     end
-    else data_out<=data_in; // the generated data for data_in is pass to data_out
-      end
-    
-  
+end
+
 endmodule

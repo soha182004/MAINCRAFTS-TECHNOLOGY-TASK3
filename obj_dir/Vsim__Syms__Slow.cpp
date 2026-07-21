@@ -11,7 +11,7 @@ Vsim__Syms::Vsim__Syms(VerilatedContext* contextp, const char* namep, Vsim* mode
     , TOP{this, namep}
 {
     // Check resources
-    Verilated::stackCheck(156);
+    Verilated::stackCheck(152);
     // Setup sub module instances
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
